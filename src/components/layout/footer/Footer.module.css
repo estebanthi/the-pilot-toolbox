@@ -1,0 +1,28 @@
+.footer {
+    color: white;
+}
+
+.line {
+    margin: 0px 100px;
+    height: 2px;
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.subContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.subContainer > span {
+    margin: 5px 0px;
+    cursor: pointer;
+}
