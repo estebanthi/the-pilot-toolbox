@@ -1,0 +1,19 @@
+.header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    position: relative;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.textualElements > span {
+    text: black;
+    cursor: pointer;
+    margin-right: 50px;
+    font-weight: 500;
+}
