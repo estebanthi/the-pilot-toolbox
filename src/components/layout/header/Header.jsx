@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from "next/link";
 
 import styles from "./Header.module.css"
-import BasicButton from "../buttons/BasicButton";
+import BasicButton from "../../buttons/basic-button/BasicButton";
 
 
 const Header = () => {

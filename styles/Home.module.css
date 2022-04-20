@@ -1,0 +1,30 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.titleContainer {
+    display: flex;
+    margin: 30px 10%;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.titleSection {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 15px 12px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 44px;
+
+    padding: 30px;
+    width: 30%;
+}
+
+.titleImage {
+    width: 30%;
+    height: 30%;
+}

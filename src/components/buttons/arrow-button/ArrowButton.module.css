@@ -1,0 +1,16 @@
+
+.icon {
+   transform: rotate(-90deg);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(45,33,171);
+    background: linear-gradient(90deg, rgba(45,33,171,1) 0%, rgba(161,59,159,1) 100%);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
