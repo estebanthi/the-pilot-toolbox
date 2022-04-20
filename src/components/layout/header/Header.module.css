@@ -17,3 +17,11 @@
     margin-right: 50px;
     font-weight: 500;
 }
+
+.selected {
+    background: rgb(45,33,171);
+    background: linear-gradient(90deg, rgba(45,33,171,1) 0%, rgba(161,59,159,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: solid 1px gray;
+}

@@ -7,3 +7,10 @@ body, html {
   font-family: 'Comfortaa';
   font-style: normal;
 }
+
+.pageTitle {
+  text-align: center;
+  font-size: 46px;
+  color: white;
+  margin: 100px;
+}
