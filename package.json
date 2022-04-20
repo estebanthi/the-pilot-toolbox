@@ -14,6 +14,8 @@
     "@mui/core": "^5.0.0-alpha.54",
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.2",
+    "axios": "^0.26.1",
+    "mongodb": "^4.5.0",
     "next": "12.1.5",
     "next-auth": "^4.3.2",
     "react": "18.0.0",
