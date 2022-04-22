@@ -1,0 +1,42 @@
+.qcmThemesPicker {
+    background: #FFFFFF;
+    box-shadow: 15px 12px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 44px;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    width: 70%;
+}
+
+.themesSelectContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.button {
+    margin: 0 10px;
+}
+
+.select {
+    width: 80%;
+    margin: 0 20px;
+}
+
+.error {
+    color: brown;
+    text-align: center;
+    margin: 1%;
+    font-weight: bold;
+}

@@ -6,9 +6,10 @@ import styles from "./BasicButton.module.css"
 const BasicButton = (props) => {
 
     return (
-        <Link href={props.href}>
+        props.href && <Link href={props.href}>
             <span className={styles.button}>{props.text}</span>
-        </Link>
+        </Link> ||
+        props.onClick && <span className={styles.button} onClick={props.onClick}>{props.text}</span>
     )
 
 }

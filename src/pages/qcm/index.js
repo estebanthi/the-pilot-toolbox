@@ -10,8 +10,6 @@ import {getAllCategories} from "../../../services/qcm";
 
 export default function QCMPage(props) {
 
-    console.log(props.categories)
-
     return (
         <div className={styles.container}>
             <h1 className={"pageTitle"}>QCM</h1>

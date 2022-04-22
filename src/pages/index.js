@@ -4,7 +4,7 @@ import Layout from "../components/layout/Layout";
 
 import styles from '../../styles/Home.module.css'
 import ArrowButton from "../components/buttons/arrow-button/ArrowButton";
-import HomeSection from "../components/sections/home-section/HomeSection";
+import HomeSection from "../components/sections/home section/HomeSection";
 
 
 export default function Home() {

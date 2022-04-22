@@ -4,3 +4,13 @@ export const getAllCategories = async () => {
     const res = await axios.get(process.env.BASE_URL+"/api/categories")
     return res.data
 }
+
+export const getCategory = async (slug) => {
+    const res = await axios.get(process.env.BASE_URL+"/api/categories", {params: {slug: slug}})
+    return res.data
+}
+
+export const getThemes = async (categoryId) => {
+    const res = await axios.get(process.env.BASE_URL+"/api/themes", {params: {category: categoryId}})
+    return res.data
+}

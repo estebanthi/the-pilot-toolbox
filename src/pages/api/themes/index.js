@@ -1,4 +1,5 @@
 import clientPromise from "../../../../lib/mongodb";
+const ObjectId = require('mongodb').ObjectId;
 
 export default async function handler(req, res) {
 
@@ -7,16 +8,16 @@ export default async function handler(req, res) {
         const db = client.db();
 
         let result = null
-        if (req.query.slug) {
-            result = await db.collection("Categories").findOne({slug: req.query.slug})
+        if (req.query._id) {
+            result = await db.collection("Themes").findOne({_id: req.query._id})
         } else {
-            result = await db.collection("Categories").find({}).toArray().then(r => JSON.stringify(r)).then(r => JSON.parse(r))
+            result = await db.collection("Themes").find({category: ObjectId(req.query.category)}).toArray().then(r => JSON.stringify(r)).then(r => JSON.parse(r))
         }
 
         if (result) {
             res.status(200).json(result)
         } else {
-            res.status(404).json('Category not found')
+            res.status(404).json('Theme not found')
         }
 
         return
