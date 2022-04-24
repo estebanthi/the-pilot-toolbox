@@ -19,8 +19,8 @@ const Header = () => {
                 <Link href="/"><span className={router.pathname == "/" && styles.selected}>Accueil</span></Link>
                 <Link href="/qcm"><span className={router.pathname == "/qcm" && styles.selected}>QCM</span></Link>
                 <Link href="/abonnement"><span className={router.pathname == "/abonnement" && styles.selected}>Abonnement</span></Link>
-                <BasicButton text="Se connecter" href="/login"/>
-                <BasicButton text="Créer un compte" href="/register" />
+                <BasicButton text="Se connecter" href="/auth/signin"/>
+                <BasicButton text="Créer un compte" href="/auth/register" />
             </div>
         </div>
     )

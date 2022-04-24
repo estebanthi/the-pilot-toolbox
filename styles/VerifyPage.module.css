@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.back {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    cursor: pointer;
+}
+
+.form {
+    background: #FFFFFF;
+    box-shadow: 15px 12px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 44px;
+    padding: 30px;
+    width: 25%;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form > h1 {
+    text-align: center;
+    background: rgb(45,33,171);
+    background: linear-gradient(90deg, rgba(45,33,171,1) 0%, rgba(161,59,159,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.formElement {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.formElement > span {
+    font-weight: bold;
+    background: rgb(45,33,171);
+    background: linear-gradient(90deg, rgba(45,33,171,1) 0%, rgba(161,59,159,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.formElement > input {
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    font-size: large;
+    background: rgb(45,33,171);
+    background: linear-gradient(90deg, rgba(45,33,171,1) 0%, rgba(161,59,159,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.alert {
+    margin-left: 10px;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.subtext {
+    color: gray;
+}
+
+.link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.success {
+
+}
