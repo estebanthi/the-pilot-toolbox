@@ -15,11 +15,11 @@ export default async function asynchandler(req, res) {
     const password = req.body.password;
 
     const userFound = await axios.get(process.env.NEXT_PUBLIC_BASE_URL+"/api/users", {params: {email: email}})
-        .then(() => true)
-        .catch(() => false)
+        .then((users) => users.data[0])
+
 
     if (userFound) {
-        return res.status(404).json("User already existing")
+        return res.status(403).json("User already existing")
     }
 
     const hashedPassword = await bcrypt.hash(password, 5)

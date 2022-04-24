@@ -7,14 +7,7 @@ export default async function handler(req, res) {
         const db = client.db();
 
         const result = await db.collection("Users").find(req.query).toArray().then(r => JSON.stringify(r)).then(r => JSON.parse(r))
-
-        if (result.length) {
-            res.status(200).json(result)
-        } else {
-            res.status(404).json('User not found')
-        }
-
-        return
+        return res.status(200).json(result)
     }
 
     if (req.method == 'POST') {

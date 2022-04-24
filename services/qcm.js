@@ -7,7 +7,7 @@ export const getAllCategories = async () => {
 
 export const getCategory = async (slug) => {
     const res = await axios.get(process.env.BASE_URL+"/api/categories", {params: {slug: slug}})
-    return res.data
+    return res.data[0]
 }
 
 export const getThemes = async (categoryId) => {

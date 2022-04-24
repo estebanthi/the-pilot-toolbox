@@ -7,20 +7,13 @@ export default async function handler(req, res) {
         const client = await clientPromise;
         const db = client.db();
 
-        let result = null
-        if (req.query._id) {
-            result = await db.collection("Themes").findOne({_id: req.query._id})
-        } else {
-            result = await db.collection("Themes").find({category: ObjectId(req.query.category)}).toArray().then(r => JSON.stringify(r)).then(r => JSON.parse(r))
-        }
+        const result = await db.collection("Themes").find(req.query).toArray().then(r => JSON.stringify(r)).then(r => JSON.parse(r))
 
-        if (result) {
-            res.status(200).json(result)
-        } else {
-            res.status(404).json('Theme not found')
-        }
+        db.collection('QCMs').find({}).forEach(function(qcm) {
+            db.collection('QCMs').updateOne({_id: qcm._id}, {$set: {theme: qcm.theme.toString()}})
+        })
 
-        return
+        return res.status(200).json(result)
     }
 
 }
