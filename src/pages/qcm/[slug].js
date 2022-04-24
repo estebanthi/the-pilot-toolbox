@@ -40,7 +40,7 @@ const CategoryPage = (props) => {
             <div className={styles.configuratorsContainer}>
                 <QCMNumberPicker handleChange={setQcmNumber}/>
                 <QCMType handleChange={setQcmType}/>
-                <QCMThemesPicker themes={props.category.themes} handleChange={setThemes}/>
+                {props.category.themes.length > 0 && <QCMThemesPicker themes={props.category.themes} handleChange={setThemes}/>}
                 <div className={styles.generate}>
                     <BasicButton onClick={generate} text="Générer"/>
                 </div>
