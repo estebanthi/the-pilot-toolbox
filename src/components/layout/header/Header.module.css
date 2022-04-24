@@ -11,7 +11,14 @@
     cursor: pointer;
 }
 
-.textualElements > span {
+.headerElements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2%;
+}
+
+.headerElements > span {
     text: black;
     cursor: pointer;
     margin-right: 50px;
