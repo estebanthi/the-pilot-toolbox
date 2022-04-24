@@ -20,7 +20,7 @@ export default function QCMPage(props) {
                     <Category key={1} image={<Image src={category.image_url}
                                             width={category.image_dimensions[0]}
                                             height={category.image_dimensions[1]}/>}
-                              title={category.title} categorySlug={category.slug}/>)}
+                              category={category}/>)}
             </Grid>
             </div>
         </div>

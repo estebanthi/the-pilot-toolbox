@@ -14,3 +14,7 @@ export const getThemes = async (categoryId) => {
     const res = await axios.get(process.env.BASE_URL+"/api/themes", {params: {category: categoryId}})
     return res.data
 }
+
+export const getQcmNbForCategory = async (category) => {
+
+}
