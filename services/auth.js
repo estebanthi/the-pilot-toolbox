@@ -24,3 +24,9 @@ export const checkEmailTaken = async (email) => {
         .then((userFound) => true)
         .catch((userNotFound) => false)
 }
+
+export const userIsSubscribed = async (email) => {
+    const user = await axios.get(process.env.BASE_URL+'/api/users', {params: {email: email}})
+        .then((res) => res.data[0])
+    return Date.now() < user.subscribedUntil
+}

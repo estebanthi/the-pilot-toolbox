@@ -15,9 +15,9 @@ const Category = (props) => {
 
     useEffect(() => {
         const getNb = async () => {
-            const qcms = await axios.get("/api/qcms", {params: {category: props.category._id.toString()}})
+            const qcmsNb = await axios.get("/api/qcms/count", {params: {category: props.category._id.toString()}})
                 .then((res) => res.data)
-            setQcmNb(qcms.length)
+            setQcmNb(qcmsNb)
         }
         getNb()
     }, [])

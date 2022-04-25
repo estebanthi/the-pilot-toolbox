@@ -14,7 +14,7 @@ export default async function asynchandler(req, res) {
     const email = req.body.email;
     const password = req.body.password;
 
-    const userFound = await axios.get(process.env.NEXT_PUBLIC_BASE_URL+"/api/users", {params: {email: email}})
+    const userFound = await axios.get(process.env.BASE_URL+"/api/users", {params: {email: email}})
         .then((users) => users.data[0])
 
 
@@ -24,7 +24,8 @@ export default async function asynchandler(req, res) {
 
     const hashedPassword = await bcrypt.hash(password, 5)
 
-    return await axios.post(process.env.BASE_URL+"/api/users", {username: username, email: email, password: hashedPassword})
+    return await axios.post(process.env.BASE_URL+"/api/users", {username: username, email: email,
+        password: hashedPassword, subscribedUntil: null})
         .then((userAdded) => res.status(200).json("User added"))
         .catch((err) => res.status(500).json(err))
 }

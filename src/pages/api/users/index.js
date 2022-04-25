@@ -1,10 +1,18 @@
 import clientPromise from "../../../../lib/mongodb";
+import {ObjectId} from "mongodb";
+
 
 export default async function handler(req, res) {
 
     if (req.method == 'GET') {
         const client = await clientPromise;
         const db = client.db();
+
+        try {
+            req.query._id = await ObjectId(req.query._id)
+        } catch (err) {
+            return res.status(403).json('Invalid _id')
+        }
 
         const result = await db.collection("Users").find(req.query).toArray().then(r => JSON.stringify(r)).then(r => JSON.parse(r))
         return res.status(200).json(result)
