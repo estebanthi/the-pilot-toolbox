@@ -71,7 +71,7 @@ export default function SigninPage () {
                 <div className={styles.button}>
                     <BasicButton text="Se connecter" onClick={handleSignin}/>
                 </div>
-                <Link href='/auth/mdp-oublie'>
+                <Link href='/auth/new-password'>
                     <span className={styles.forgottenPassword}>Mot de passe oublié ?</span>
                 </Link>
                 {spinner && <div className={styles.spinner}>

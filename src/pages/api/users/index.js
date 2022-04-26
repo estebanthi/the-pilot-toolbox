@@ -5,7 +5,6 @@ import {getSession} from "next-auth/react";
 
 export default async function handler(req, res) {
 
-
     if (req.method == 'GET') {
         const client = await clientPromise;
         const db = client.db();

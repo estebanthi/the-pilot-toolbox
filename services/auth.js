@@ -9,6 +9,10 @@ export const sendValidationCode = async (code, email) => {
     await axios.post("/api/mails/send-code", {code: code, email: email})
 }
 
+export const sendNewPasswordCode = async (email) => {
+    return await axios.put("/api/users/password", {}, {params: {email: email}})
+}
+
 export const generateValidationToken = async (code, username, email, password) => {
     var token = await jwt.sign({code: code, username: username, email: email, password: password}, process.env.NEXT_PUBLIC_JWT_SIGN)
     return token
