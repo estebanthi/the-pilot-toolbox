@@ -8,8 +8,8 @@
     flex-direction: column;
 
     margin: 50px;
-    width: 70%;
     white-space: nowrap;
+    width: 100%;
 }
 
 .label {

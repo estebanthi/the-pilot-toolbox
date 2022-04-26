@@ -1,4 +1,5 @@
 import axios from "axios";
+import clientPromise from "../../../../lib/mongodb";
 const bcrypt = require("bcrypt");
 
 export default async function handler(req, res) {
@@ -11,9 +12,10 @@ export default async function handler(req, res) {
     const email = req.query.email
     const password = req.query.password
 
-    const userFound = await axios.get(process.env.BASE_URL+"/api/users", {params: {email: email}})
-        .then((result) => result.data[0])
-        .catch(() => null)
+
+    const client = await clientPromise;
+    const db = client.db();
+    const userFound = await db.collection("Users").findOne({email: email})
 
     if (!userFound) {
         res.status(404).json('User not found')

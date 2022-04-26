@@ -22,12 +22,12 @@ export default async function asynchandler(req, res) {
     };
     await transporter.sendMail(mailOptions, function(error, info){
         if (error) {
-            return res.status(500).json(error)
+            res.status(500).json(error)
         } else {
-
+            res.status(200).json('Email sent')
         }
     })
 
-    return res.status(200).json('Email sent');
+    return
 
 }

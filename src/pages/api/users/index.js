@@ -1,15 +1,19 @@
 import clientPromise from "../../../../lib/mongodb";
 import {ObjectId} from "mongodb";
+import {getSession} from "next-auth/react";
 
 
 export default async function handler(req, res) {
+
 
     if (req.method == 'GET') {
         const client = await clientPromise;
         const db = client.db();
 
         try {
-            req.query._id = await ObjectId(req.query._id)
+            if (req.query._id) {
+                req.query._id = await ObjectId(req.query._id)
+            }
         } catch (err) {
             return res.status(403).json('Invalid _id')
         }

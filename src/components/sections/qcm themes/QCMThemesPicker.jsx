@@ -3,6 +3,7 @@ import Select from "react-select";
 import BasicButton from "../../buttons/basic-button/BasicButton";
 import {useEffect, useState} from "react";
 import {getThemes} from "../../../../services/qcm";
+import {useSession} from "next-auth/react";
 
 
 
@@ -12,7 +13,7 @@ const QCMThemesPicker = (props) => {
 
     const selectAll = () => {
         setValues(getSelectOptionsFromThemes())
-        props.handleChange(getSelectOptionsFromThemes())
+        props.handleChange(props.themes.map((theme) => theme._id))
     }
 
     const reset = () => {

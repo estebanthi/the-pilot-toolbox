@@ -9,9 +9,8 @@
     justify-content: center;
     align-items: center;
 
-
-    width: 70%;
     white-space: nowrap;
+    width: 100%;
 }
 
 .slider {

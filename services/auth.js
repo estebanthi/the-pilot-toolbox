@@ -21,7 +21,7 @@ export const registerUser = async (username, email, password) => {
 
 export const checkEmailTaken = async (email) => {
     return await axios.get("/api/users", {params: {email: email}})
-        .then((userFound) => true)
+        .then((userFound) => userFound.data[0] ? true : false)
         .catch((userNotFound) => false)
 }
 
@@ -29,4 +29,10 @@ export const userIsSubscribed = async (email) => {
     const user = await axios.get(process.env.BASE_URL+'/api/users', {params: {email: email}})
         .then((res) => res.data[0])
     return Date.now() < user.subscribedUntil
+}
+
+export const getUser = async (email) => {
+    const user = await axios.get('/api/users', {params: {email: email}})
+        .then((res) => res.data[0])
+    return user
 }
