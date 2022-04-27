@@ -24,7 +24,6 @@ export default NextAuth({
                     .catch((err) => null)
 
                 if (user) {
-                    console.log(user)
                     return user
                 }
                 return null
