@@ -67,7 +67,7 @@ export default function RegisterPage () {
             <div className={styles.form}>
                 <h1>Créer un compte</h1>
                 <div className={styles.formElement}>
-                    <span>Nom d'utilisateur</span>
+                    <span>Pseudonyme</span>
                     <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
                 </div>
                 <div className={styles.formElement}>
@@ -85,7 +85,7 @@ export default function RegisterPage () {
                 {spinner && <div className={styles.spinner}>
                     <Spinner/>
                 </div>}
-                <p className={styles.subtext}>Vos données personnelles sont conservées uniquement à des fins d'authentification. Plus d'infos ici : {<Link href={"/legal/politique-de-confidentialite"}><span className={styles.link}>Politique de Confidentialité</span></Link>}.</p>
+                <p className={styles.subtext}>Vos données personnelles sont conservées uniquement dans le cadre du site. Voir : {<Link href={"/legal/politique-de-confidentialite"}><span className={styles.link}>Politique de Confidentialité</span></Link>}.</p>
             </div>
         </div>
     )
