@@ -7,7 +7,7 @@ export default function QCMsPage (props) {
 
     return (
         <div>
-            {props.qcms && props.qcms.map((qcm, index) => <QCMQuestion qcm={qcm} index={index+1} />)}
+            {props.qcms && props.qcms.map((qcm, index) => <QCMQuestion key={qcm._id} qcm={qcm} index={index+1} />)}
         </div>
     )
 

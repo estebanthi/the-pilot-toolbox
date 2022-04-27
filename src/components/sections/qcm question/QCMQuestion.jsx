@@ -21,7 +21,7 @@ const QCMQuestion = (props) => {
                 {qcm.linked_image && <div className={styles.questionImage}><Link href={qcm.linked_image} passHref><a target="_blank" rel="noopener noreferrer"><Image src={qcm.linked_image} width={50} height={50}/></a></Link></div>}
             </div>
             <div className={styles.responses}>
-                {responses.map((response) => <div className={styles.response}>
+                {responses.map((response) => <div key={response} className={styles.response}>
                     <span className={styles.number}>{response} : </span>
                     <span> {qcm.responses[response-1]}</span>
                     <div><RadioButton small={true} value={responses[response-1]} selected={selected} setSelected={setSelected} /></div>
