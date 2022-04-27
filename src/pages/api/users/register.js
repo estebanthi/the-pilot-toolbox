@@ -3,7 +3,6 @@ import axios from "axios";
 import {use} from "bcrypt/promises";
 import clientPromise from "../../../../lib/mongodb";
 
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 export default async function asynchandler(req, res) {
 

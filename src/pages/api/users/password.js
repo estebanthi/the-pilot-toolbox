@@ -1,6 +1,4 @@
 import clientPromise from "../../../../lib/mongodb";
-import {ObjectId} from "mongodb";
-import {getSession} from "next-auth/react";
 import jwt from "jsonwebtoken";
 import axios from "axios";
 import bcrypt from "bcrypt";
