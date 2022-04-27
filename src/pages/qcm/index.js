@@ -22,7 +22,7 @@ export default function QCMPage(props) {
 
         get()
 
-    })
+    }, [])
 
     return (
         <div className={styles.container}>
