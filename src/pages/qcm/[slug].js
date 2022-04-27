@@ -23,8 +23,6 @@ const CategoryPage = (props) => {
 
     const [spinner, setSpinner] = useState(false)
 
-    const [categoryInfo, setCategoryInfo] = useState(null)
-
     const router = useRouter()
 
     useEffect(() => {
@@ -32,24 +30,14 @@ const CategoryPage = (props) => {
             number: qcmNumber,
             type: qcmType,
             themes: themes,
-            category: categoryInfo ? categoryInfo._id : null
+            category: props.category._id
         })
 
-        const getCategoryInfo = async () => {
-
-            let categoryInfo = await getCategory(props.slug)
-            const themes = await getThemes(categoryInfo._id)
-
-            categoryInfo.themes = themes
-            setCategoryInfo(categoryInfo)
-        }
-
-        getCategoryInfo()
     }, [themes, qcmNumber, qcmType])
 
     const generate = async () => {
 
-        if (!themes.length && categoryInfo.themes.length > 0) {
+        if (!themes.length && props.category.themes.length > 0) {
             return
         }
 
@@ -61,19 +49,19 @@ const CategoryPage = (props) => {
 
     return (
         <div className={styles.container}>
-            {categoryInfo ? <div><h1 className="pageTitle">{categoryInfo.title}</h1>
+           <h1 className="pageTitle">{props.category.title}</h1>
                 <div className={styles.demo}><DemoAlert/></div>
                 <div className={styles.configuratorsContainer}>
                 <QCMNumberPicker handleChange={setQcmNumber}/>
                 <QCMType handleChange={setQcmType} options={options}/>
-            {categoryInfo.themes.length > 0 && <QCMThemesPicker themes={categoryInfo.themes} handleChange={setThemes}/>}
+            {props.category.themes.length > 0 && <QCMThemesPicker themes={props.category.themes} handleChange={setThemes}/>}
                 <div className={styles.generate}>
                 <BasicButton onClick={generate} text="Générer"/>
             {spinner && <div className={styles.spinner}>
                 <Spinner/>
                 </div>}
                 </div>
-                </div></div> : <span>Chargement...</span>}
+                </div>
         </div>
     )
 
@@ -91,17 +79,9 @@ CategoryPage.getLayout = function getLayout(page){
 }
 
 
-export async function getStaticPaths() {
-    const categories = ['ppl-a', 'abl', 'ulm', 'ppl-h', 'atpl', 'caea', 'drone', 'bia']
+export async function getServerSideProps({params}) {
+    let category = await getCategory(params.slug)
     return {
-        paths: categories.map((category) => ({params: {slug: category}})),
-        fallback: true,
-    }
-}
-
-
-export async function getStaticProps({params}) {
-    return {
-        props: {slug: params.slug}
+        props: {category: category}
     }
 }

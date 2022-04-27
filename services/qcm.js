@@ -8,12 +8,16 @@ export const getAllCategories = async () => {
 }
 
 export const getCategory = async (slug) => {
-    const res = await axios.get(process.env.NEXT_PUBLIC_BASE_URL+"/api/categories", {params: {slug: slug}})
-    return res.data[0]
+    let category = await axios.get(process.env.NEXT_PUBLIC_BASE_URL+"/api/categories", {params: {slug: slug}})
+        .then((res) => res.data[0])
+    const themes = await getThemes(category._id)
+
+    category.themes = themes
+    return category
 }
 
 export const getThemes = async (categoryId) => {
-    const res = await axios.get("/api/themes", {params: {category: categoryId}})
+    const res = await axios.get(process.env.NEXT_PUBLIC_BASE_URL+"/api/themes", {params: {category: categoryId}})
     return res.data
 }
 
