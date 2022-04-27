@@ -74,7 +74,7 @@ export default function NewPasswordPage (props) {
         <div className={styles.container}>
             <div className={styles.back}>
                 <ArrowBack onClick={() => router.push('/')}/>
-                <Link href="/"><span>Retourner à l'accueil</span></Link>
+                <Link href="/"><span>Retour</span></Link>
             </div>
             <div className={styles.form}>
                 <h1>Mot de passe oublié</h1>
