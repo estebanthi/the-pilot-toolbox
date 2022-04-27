@@ -26,6 +26,9 @@ export const getQcmsFromOptions = async (options) => {
         .slice(0, options.number)
 
     const session = await getSession()
+
+    qcms.sort(() => Math.random() - 0.5)
+
     if (!session) {
         return qcms
     }

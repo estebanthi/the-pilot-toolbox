@@ -5,3 +5,11 @@
         height: 25px;
         color: #442FA3;
 }
+
+.smallRadio {
+        background: #7f3d9e;
+        border-radius: 999px;
+        width: 17px;
+        height: 17px;
+        color: #442FA3;
+}
