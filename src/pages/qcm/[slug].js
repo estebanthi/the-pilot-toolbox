@@ -25,19 +25,28 @@ const CategoryPage = (props) => {
 
     const router = useRouter()
 
+    const [category, setCategory] = useState({_id: '', themes: [], title: ''})
+
     useEffect(() => {
+
+        const setData = async () => {
+            const category = await getCategory(props.slug)
+            setCategory(category)
+        }
+        setData()
+
         setOptions({
             number: qcmNumber,
             type: qcmType,
             themes: themes,
-            category: props.category._id
+            category: category
         })
 
     }, [themes, qcmNumber, qcmType])
 
     const generate = async () => {
 
-        if (!themes.length && props.category.themes.length > 0) {
+        if (!themes.length && category.themes.length > 0) {
             return
         }
 
@@ -49,12 +58,12 @@ const CategoryPage = (props) => {
 
     return (
         <div className={styles.container}>
-           <h1 className="pageTitle">{props.category.title}</h1>
+           <h1 className="pageTitle">{category.title}</h1>
                 <div className={styles.demo}><DemoAlert/></div>
                 <div className={styles.configuratorsContainer}>
                 <QCMNumberPicker handleChange={setQcmNumber}/>
                 <QCMType handleChange={setQcmType} options={options}/>
-            {props.category.themes.length > 0 && <QCMThemesPicker themes={props.category.themes} handleChange={setThemes}/>}
+            {category.themes.length > 0 && <QCMThemesPicker themes={category.themes} handleChange={setThemes}/>}
                 <div className={styles.generate}>
                 <BasicButton onClick={generate} text="Générer"/>
             {spinner && <div className={styles.spinner}>
@@ -79,9 +88,16 @@ CategoryPage.getLayout = function getLayout(page){
 }
 
 
-export async function getServerSideProps({params}) {
-    let category = await getCategory(params.slug)
+export async function getStaticPaths() {
+    const categories = ['ppl-a', 'abl', 'ulm', 'ppl-h', 'atpl', 'caea', 'drone', 'bia']
     return {
-        props: {category: category}
+        paths: categories.map((category) => ({params: {slug: category}})),
+        fallback: true,
+    }
+}
+
+export async function getStaticProps({params}) {
+    return {
+        props: {slug: params.slug}
     }
 }
