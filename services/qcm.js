@@ -3,7 +3,7 @@ import {getSession} from "next-auth/react";
 import {getUser} from "./auth";
 
 export const getAllCategories = async () => {
-    const res = await axios.get((process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL)+"/api/categories")
+    const res = await axios.get("/api/categories")
     return res.data
 }
 
