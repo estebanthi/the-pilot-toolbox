@@ -1,7 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     cursor: pointer;
     text-align: center;
@@ -16,6 +16,7 @@
     color: gray;
 }
 
-.container {
-    flex-direction: column;
+.image {
+    max-width: 100px;
+    width: 100%;
 }

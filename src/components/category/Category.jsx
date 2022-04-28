@@ -22,7 +22,7 @@ const Category = (props) => {
 
     return (
         <Grid item xs={props.xs ? props.xs : 4} className={styles.container} onClick={() => router.push("/qcm/"+props.category.slug)}>
-            {props.image}
+            <div className={styles.image}>{props.image}</div>
             <h3>{props.category.full_name}</h3>
             <span>{qcmNb} QCM</span>
         </Grid>
