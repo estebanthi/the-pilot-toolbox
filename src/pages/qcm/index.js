@@ -39,8 +39,8 @@ QCMPage.getLayout = function getLayout(page){
 
 }
 
-export async function getInitialProps() {
-    const categories = await getAllCategories()
+export async function getServerSideProps() {
+    const categories = ""
     return {
         props: {categories: categories}
     }

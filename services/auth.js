@@ -30,7 +30,7 @@ export const checkEmailTaken = async (email) => {
 }
 
 export const userIsSubscribed = async (email) => {
-    const user = await axios.get(process.env.BASE_URL+'/api/users', {params: {email: email}})
+    const user = await axios.get((process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL)+'/api/users', {params: {email: email}})
         .then((res) => res.data[0])
     return Date.now() < user.subscribedUntil
 }

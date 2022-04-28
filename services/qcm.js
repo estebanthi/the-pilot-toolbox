@@ -3,12 +3,12 @@ import {getSession} from "next-auth/react";
 import {getUser} from "./auth";
 
 export const getAllCategories = async () => {
-    const res = await axios.get(process.env.NEXT_PUBLIC_BASE_URL+"/api/categories")
+    const res = await axios.get((process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL)+"/api/categories")
     return res.data
 }
 
 export const getCategory = async (slug) => {
-    let category = await axios.get(process.env.NEXT_PUBLIC_BASE_URL+"/api/categories", {params: {slug: slug}})
+    let category = await axios.get((process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL)+"/api/categories", {params: {slug: slug}})
         .then((res) => res.data[0])
     const themes = await getThemes(category._id)
 
@@ -17,7 +17,7 @@ export const getCategory = async (slug) => {
 }
 
 export const getThemes = async (categoryId) => {
-    const res = await axios.get(process.env.NEXT_PUBLIC_BASE_URL+"/api/themes", {params: {category: categoryId}})
+    const res = await axios.get((process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL)+"/api/themes", {params: {category: categoryId}})
     return res.data
 }
 
