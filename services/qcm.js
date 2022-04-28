@@ -8,7 +8,7 @@ export const getAllCategories = async () => {
 }
 
 export const getCategory = async (slug) => {
-    let category = await axios.get((process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL)+"/api/categories", {params: {slug: slug}})
+    let category = await axios.get("/api/categories", {params: {slug: slug}})
         .then((res) => res.data[0])
     const themes = await getThemes(category._id)
 
