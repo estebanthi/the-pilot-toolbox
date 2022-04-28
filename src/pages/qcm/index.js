@@ -11,6 +11,19 @@ import {useEffect, useState} from "react";
 
 export default function QCMPage(props) {
 
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+
+        const setData = async () => {
+            const categories = await getAllCategories()
+            setCategories(categories)
+        }
+
+        setData()
+    }, [])
+
+
 
     return (
         <div className={styles.container}>
@@ -18,7 +31,7 @@ export default function QCMPage(props) {
             <div className={styles.categoriesContainer}>
             <h2>Catégories</h2>
             <Grid container spacing={10} alignItems="flex-end">
-                {props.categories.map((category) =>
+                {categories.map((category) =>
                     <Category key={category._id} image={<Image src={category.image_url}
                                             width={category.image_dimensions[0]}
                                             height={category.image_dimensions[1]}/>}
@@ -37,11 +50,4 @@ QCMPage.getLayout = function getLayout(page){
         <Layout>{page}</Layout>
     )
 
-}
-
-export async function getServerSideProps() {
-    const categories = ""
-    return {
-        props: {categories: categories}
-    }
 }
