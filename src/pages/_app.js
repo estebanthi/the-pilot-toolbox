@@ -5,7 +5,7 @@ import '../../styles/globals.css'
 function App({ Component, pageProps: {session, ...pageProps} }) {
   const getLayout = Component.getLayout || ((page) => page)
   const layoutComponent = getLayout(<Component {...pageProps} />)
-  return <SessionProvider session={session}>{layoutComponent}</SessionProvider>
+  return layoutComponent
 }
 
 export default App
