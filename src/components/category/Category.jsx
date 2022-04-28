@@ -6,8 +6,6 @@ import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-const data = {nb: 2000}
-
 const Category = (props) => {
 
     const router = useRouter()

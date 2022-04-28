@@ -1,7 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     cursor: pointer;
     text-align: center;
@@ -14,4 +14,8 @@
 .container > span {
     font-size: 14px;
     color: gray;
+}
+
+.container {
+    flex-direction: column;
 }
