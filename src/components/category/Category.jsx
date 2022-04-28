@@ -21,8 +21,8 @@ const Category = (props) => {
     }, [])
 
     return (
-        <Grid item xs={props.xs ? props.xs : 4} style={{display: "flex", flexDirection: "column"}} onClick={() => router.push("/qcm/"+props.category.slug)}>
-            <div className={styles.image}>{props.image}</div>
+        <Grid item xs={props.xs ? props.xs : 4} className={styles.container} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", cursor: "pointer", textAlign: "center"}} onClick={() => router.push("/qcm/"+props.category.slug)}>
+            {props.image}
             <h3>{props.category.full_name}</h3>
             <span>{qcmNb} QCM</span>
         </Grid>

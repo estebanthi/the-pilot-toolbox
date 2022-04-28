@@ -1,11 +1,3 @@
-.container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    text-align: center;
-}
 
 .container > h3 {
     font-size: 18px;
@@ -14,9 +6,4 @@
 .container > span {
     font-size: 14px;
     color: gray;
-}
-
-.image {
-    max-width: 100px;
-    width: 100%;
 }
