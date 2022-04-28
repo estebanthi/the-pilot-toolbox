@@ -19,28 +19,27 @@ const CategoryPage = (props) => {
     const [qcmType, setQcmType] = useState(0)
     const [themes, setThemes] = useState([])
 
-    const [options, setOptions] = useState()
+    const [options, setOptions] = useState(null)
 
     const [spinner, setSpinner] = useState(false)
 
     const router = useRouter()
 
-    const [category, setCategory] = useState({_id: '', themes: [], title: ''})
+    const [category, setCategory] = useState()
 
     useEffect(() => {
 
         const setData = async () => {
             const category = await getCategory(props.slug)
             setCategory(category)
+            setOptions({
+                number: qcmNumber,
+                type: qcmType,
+                themes: themes,
+                category: category._id
+            })
         }
         setData()
-
-        setOptions({
-            number: qcmNumber,
-            type: qcmType,
-            themes: themes,
-            category: category
-        })
 
     }, [themes, qcmNumber, qcmType])
 
@@ -58,19 +57,20 @@ const CategoryPage = (props) => {
 
     return (
         <div className={styles.container}>
-           <h1 className="pageTitle">{category.title}</h1>
+            {options ? <div><h1 className="pageTitle">{category.title}</h1>
                 <div className={styles.demo}><DemoAlert/></div>
                 <div className={styles.configuratorsContainer}>
-                <QCMNumberPicker handleChange={setQcmNumber}/>
-                <QCMType handleChange={setQcmType} options={options}/>
-            {category.themes.length > 0 && <QCMThemesPicker themes={category.themes} handleChange={setThemes}/>}
-                <div className={styles.generate}>
-                <BasicButton onClick={generate} text="Générer"/>
-            {spinner && <div className={styles.spinner}>
-                <Spinner/>
-                </div>}
+                    <QCMNumberPicker handleChange={setQcmNumber}/>
+                    <QCMType handleChange={setQcmType} options={options}/>
+                    {category.themes.length > 0 && <QCMThemesPicker themes={category.themes} handleChange={setThemes}/>}
+                    <div className={styles.generate}>
+                        <BasicButton onClick={generate} text="Générer"/>
+                        {spinner && <div className={styles.spinner}>
+                            <Spinner/>
+                        </div>}
+                    </div>
                 </div>
-                </div>
+            </div> : <span>Chargement...</span>}
         </div>
     )
 
