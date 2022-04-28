@@ -14,17 +14,7 @@ export default function QCMPage(props) {
 
     return (
         <div className={styles.container}>
-            <h1 className={"pageTitle"}>QCM</h1>
-            <div className={styles.categoriesContainer}>
-            <h2>Catégories</h2>
-            <Grid container spacing={10} alignItems="flex-end">
-                {props.categories.map((category) =>
-                    <Category key={category._id} image={<Image src={category.image_url}
-                                            width={category.image_dimensions[0]}
-                                            height={category.image_dimensions[1]}/>}
-                              category={category}/>)}
-            </Grid>
-            </div>
+            ok
         </div>
     )
 
@@ -40,8 +30,8 @@ QCMPage.getLayout = function getLayout(page){
 }
 
 export async function getServerSideProps({params}) {
-    const categories = await getAllCategories()
+
     return {
-        props: {categories: categories}
+        props: {categories: "categories"}
     }
 }
