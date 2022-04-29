@@ -33,7 +33,7 @@ export default NextAuth({
     pages: {
         signIn: "/auth/signin"
     },
-    secret: process.env.AUTH_HASH_SECRET,
+    secret: process.env.NEXTAUTH_SECRET,
     session: {
         strategy: "jwt",
         maxAge: 3 * 24 * 60 * 60,
