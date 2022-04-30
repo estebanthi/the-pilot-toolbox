@@ -41,7 +41,7 @@ export default function SigninPage () {
         }
 
         setSpinner(true)
-        await signIn('credentials', {password: password, email: email, callbackUrl: "/"})
+        await signIn('credentials-signin', {password: password, email: email, callbackUrl: "/"})
         setSpinner(false)
     }
 
