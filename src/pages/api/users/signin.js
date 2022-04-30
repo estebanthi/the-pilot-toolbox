@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 
 export default async function handler(req, res) {
 
+    console.log('ok')
 
     if (req.method != "GET") {
         return res.status(404).json("Wrong method")
@@ -11,17 +12,18 @@ export default async function handler(req, res) {
     const email = req.query.email
     const password = req.query.password
 
+    console.log(email, password)
 
     const client = await clientPromise;
     const db = client.db();
     const userFound = await db.collection("Users").findOne({email: email})
 
-    console.log(userFound, email, password)
-
     if (!userFound) {
         res.status(404).json('User not found')
         return
     }
+
+    console.log('ok')
 
     const passwordVerif = await bcrypt.compare(password, userFound.password)
 
