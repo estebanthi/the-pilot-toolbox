@@ -29,6 +29,9 @@ export default NextAuth({
             }
         })
     ],
+    pages: {
+        signIn: (process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL)+"/auth/signin"
+    },
     secret: process.env.NEXTAUTH_SECRET,
     session: {
         strategy: "jwt",
