@@ -22,6 +22,10 @@ export default NextAuth({
                     .then((userFound) => userFound.data)
                     .catch((err) => null)
 
+                console.log(user)
+                console.log(credentials.email)
+                console.log(credentials.password)
+
                 if (user) {
                     return user
                 }
