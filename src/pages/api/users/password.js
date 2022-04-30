@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     if (req.method == 'PUT') {
         if (!req.body.token) {
             const code = Math.round((Math.random() * (999999 - 100000) + 100000))
-            await axios.post((process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL) + "/api/mails/send-new-password-code", {
+            await axios.post(process.env.NEXT_PUBLIC_BASE_URL + "/api/mails/send-new-password-code", {
                 code: code,
                 email: req.query.email
             })

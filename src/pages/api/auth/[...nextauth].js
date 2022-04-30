@@ -15,14 +15,11 @@ export default NextAuth({
             },
             async authorize(credentials, req) {
 
-                console.log(1)
                 const user = await axios.get("https://the-pilot-toolbox.vercel.app/api/users/signin", {params: {email: credentials.email, password:credentials.password}})
                     .then((userFound) => userFound.data)
                     .catch((err) => {
-                        console.log(err)
                         return null
                     })
-                console.log(3)
 
                 if (user) {
                     return user

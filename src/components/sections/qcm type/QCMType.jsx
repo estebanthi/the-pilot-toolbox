@@ -20,7 +20,6 @@ const QCMType = (props) => {
 
         const setNbs = async () => {
             let options = Object.assign({} ,props.options)
-            console.log(options)
             if (!options) {
                 setAllNb(0)
                 setAlreadySeenNb(0)

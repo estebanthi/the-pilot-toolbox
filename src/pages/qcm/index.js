@@ -17,7 +17,6 @@ export default function QCMPage(props) {
 
         const setData = async () => {
             const categories = await getAllCategories()
-            console.log(categories)
             setCategories(categories)
         }
 
