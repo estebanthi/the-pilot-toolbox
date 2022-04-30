@@ -15,9 +15,14 @@ export default NextAuth({
             },
             async authorize(credentials, req) {
 
+                console.log(1)
                 const user = await axios.get("https://"+(process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL)+"/api/users/signin", {params: {email: credentials.email, password:credentials.password}})
                     .then((userFound) => userFound.data)
-                    .catch((err) => null)
+                    .catch((err) => {
+                        console.log(err)
+                        return null
+                    })
+                console.log(3)
 
                 if (user) {
                     return user
