@@ -2,18 +2,16 @@ import Layout from "../../components/layout/Layout";
 import axios from "axios";
 import QCMQuestion from "../../components/sections/qcm question/QCMQuestion";
 import {useEffect, useState} from "react";
-import {useRouter} from "next/router";
 
 
 export default function QCMsPage (props) {
 
     const [qcms, setQcms] = useState([])
-    const router = useRouter()
 
     useEffect(() => {
 
         const setData = async () => {
-            const ids = router.query.ids
+            const ids = props.ids
             let qcms = []
             if (ids) {
                 const parsedIds = parseIds(ids)
@@ -48,4 +46,8 @@ QCMsPage.getLayout = function getLayout(page){
 
 const parseIds = (ids) => {
     return ids.split('-')
+}
+
+QCMsPage.getInitialProps = async (ctx) => {
+    return { ids: ctx.query.ids }
 }
