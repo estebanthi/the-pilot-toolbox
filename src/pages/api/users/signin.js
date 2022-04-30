@@ -23,7 +23,6 @@ export default async function handler(req, res) {
         return
     }
 
-    console.log('ok')
 
     const passwordVerif = await bcrypt.compare(password, userFound.password)
 

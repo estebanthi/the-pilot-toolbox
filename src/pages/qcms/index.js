@@ -8,13 +8,17 @@ import {useRouter} from "next/router";
 export default function QCMsPage (props) {
 
     const router = useRouter()
+    const {ids} = router.query
 
     const [qcms, setQcms] = useState([])
 
     useEffect(() => {
 
+        if (!ids) {
+            return
+        }
+
         const setData = async () => {
-            const ids = router.query.ids
             let qcms = []
             if (ids) {
                 const parsedIds = parseIds(ids)
@@ -28,7 +32,7 @@ export default function QCMsPage (props) {
         }
         setData()
 
-    }, [router])
+    }, [ids])
 
     return (
         <div>
