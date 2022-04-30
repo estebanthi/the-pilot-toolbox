@@ -23,7 +23,7 @@ export default function QCMsPage (props) {
             if (ids) {
                 const parsedIds = parseIds(ids)
                 for (let i = 0; i < parsedIds.length; i++) {
-                    const qcm = await axios.get((process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL)+"/api/qcms", {params: {_id: parsedIds[i]}})
+                    const qcm = await axios.get("/api/qcms", {params: {_id: parsedIds[i]}})
                         .then((qcm) => qcm.data[0])
                     qcms.push(qcm)
                 }
