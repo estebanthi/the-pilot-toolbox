@@ -17,6 +17,7 @@ export default async function handler(req, res) {
     const userFound = await db.collection("Users").findOne({email: email})
 
     if (!userFound) {
+        console.log('ok')
         res.status(404).json('User not found')
         return
     }
