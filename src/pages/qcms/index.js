@@ -22,11 +22,8 @@ export default function QCMsPage (props) {
             let qcms = []
             if (ids) {
                 const parsedIds = parseIds(ids)
-                for (let i = 0; i < parsedIds.length; i++) {
-                    const qcm = await axios.get("/api/qcms", {params: {_id: parsedIds[i]}})
-                        .then((qcm) => qcm.data[0])
-                    qcms.push(qcm)
-                }
+                qcms = await axios.get("/api/qcms", {params: {"_id": parsedIds}})
+                    .then((qcm) => qcm.data[0])
             }
             setQcms(qcms)
         }
@@ -36,7 +33,7 @@ export default function QCMsPage (props) {
 
     return (
         <div>
-            {qcms && qcms.map((qcm, index) => <QCMQuestion key={qcm._id} qcm={qcm} index={index+1} />)}
+            {qcms.length > 0 && qcms.map((qcm, index) => <QCMQuestion key={qcm._id} qcm={qcm} index={index+1} />)}
         </div>
     )
 
